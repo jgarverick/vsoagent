@@ -17,18 +17,21 @@ RUN curl -L --insecure https://www.npmjs.org/install.sh | bash
 
 RUN npm install -g vsoagent-installer grunt bower grunt-cli jake yo gulp grunt-cli
 
-
 ###########################################################
 #  Create a service user as root access throws an error
 ###########################################################
-RUN adduser --disabled-password vsoservice
-RUN echo "vsoservice:vsoservice" | chpasswd
+RUN echo "vsoservice\nvsoservice\n\n\n\n\n\n\n" | adduser vsoservice
 RUN su vsoservice
 ###########################################################
 #  Install the agent
 ###########################################################
-RUN /usr/bin/vsoagent-installer
+RUN mkdir /opt/vsoagent 
+RUN mkdir /opt/vsoagent/_work
+WORKDIR /opt/vsoagent
+RUN vsoagent-installer
 WORKDIR /opt/vsoagent/agent
+COPY agent.config /opt/vsoagent/agent/.agent
+RUN chown -R vsoservice /opt/vsoagent
 
 ###########################################################
 #  Optional - install Team Explorer Everywhere 2013
@@ -37,9 +40,11 @@ WORKDIR /opt/vsoagent/agent
 #    changed to match the directory structure you wish to use.
 ###########################################################
 
-# RUN mkdir /opt/vsoagent 
-# WORKDIR /opt/vsoagent
+
 #COPY tee /opt/tee
 #ENV PATH $PATH:/opt/tee
-RUN node config
-ENTRYPOINT node host
+
+USER vsoservice
+ENTRYPOINT /bin/bash
+
+
