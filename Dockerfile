@@ -17,12 +17,16 @@ RUN curl -L --insecure https://www.npmjs.org/install.sh | bash
 
 RUN npm install -g vsoagent-installer grunt bower grunt-cli jake yo gulp grunt-cli
 
+
+###########################################################
+#  Create a service user as root access throws an error
+###########################################################
+adduser --disabled-password vsoservice
+echo -e "vsoservice\nvsoservice\n" | chpasswd vsoservice
+su vsoservice
 ###########################################################
 #  Install the agent
 ###########################################################
-
-RUN mkdir /opt/vsoagent 
-WORKDIR /opt/vsoagent
 RUN /usr/bin/vsoagent-installer
 WORKDIR /opt/vsoagent/agent
 
@@ -33,6 +37,8 @@ WORKDIR /opt/vsoagent/agent
 #    changed to match the directory structure you wish to use.
 ###########################################################
 
+# RUN mkdir /opt/vsoagent 
+# WORKDIR /opt/vsoagent
 #COPY tee /opt/tee
 #ENV PATH $PATH:/opt/tee
 
