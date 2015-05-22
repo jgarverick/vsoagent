@@ -21,9 +21,9 @@ RUN npm install -g vsoagent-installer grunt bower grunt-cli jake yo gulp grunt-c
 ###########################################################
 #  Create a service user as root access throws an error
 ###########################################################
-adduser --disabled-password vsoservice
-echo -e "vsoservice\nvsoservice\n" | chpasswd vsoservice
-su vsoservice
+RUN adduser --disabled-password vsoservice
+RUN echo -e "vsoservice\nvsoservice\n" | chpasswd vsoservice
+RUN su vsoservice
 ###########################################################
 #  Install the agent
 ###########################################################
