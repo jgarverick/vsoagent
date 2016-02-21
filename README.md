@@ -9,6 +9,7 @@ Assorted Docker images with the new Build.vNext xplat agent baked in
 - `java8`: [vsoagent paired with Docker's Java version 8 image](/java/java8/Dockerfile)
 - `node`: [vsoagent paired with Docker's nodejs image](/nodejs/Dockerfile)
 - `python`: [vsoagent paired with Docker's python image](/python/Dockerfile)
+- `ruby`: [vsoagent paired with Docker's ruby image](/ruby/Dockerfile)
 
 
 ## Usage
