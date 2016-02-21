@@ -15,7 +15,7 @@ RUN curl -L --insecure https://www.npmjs.org/install.sh | bash
 #  and some additional nice-to-haves (jake, yeoman, gulp)
 ###########################################################
 
-RUN npm install -g vsoagent-installer grunt bower grunt-cli jake yo gulp grunt-cli
+RUN npm install -g vsoagent-installer grunt bower grunt-cli jake yo gulp grunt-cli azure
 
 ###########################################################
 #  Create a service user as root access throws an error
