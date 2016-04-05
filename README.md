@@ -1,5 +1,5 @@
-# vsts-agent
-Assorted Docker images with the new Build.vNext xplat agent baked in
+# vsoagent (VSTS Agent on Docker)
+Assorted Docker images with the new Build.vNext xplat agent baked in.  Apologies for the old nomenclature.
 
 ## Currently Supported Tags
 - `aspnet`: [vsoagent paired with Microsoft's ASP.NET vNext image](/aspnet/Dockerfile)
