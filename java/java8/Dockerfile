@@ -5,9 +5,9 @@ MAINTAINER Josh Garverick <josh.garverick@gmail.com>
 #  Set up backports for wheezy, leads to node.js install
 ###########################################################
 
-RUN echo "deb http://ftp.us.debian.org/debian wheezy-backports main" >> /etc/apt/sources.list
 RUN apt-get update
-RUN apt-get install -y nodejs-legacy git cmake
+RUN curl -sL https://deb.nodesource.com/setup_5.x | bash -
+RUN apt-get install -y nodejs git cmake build-essential
 RUN curl -L --insecure https://www.npmjs.org/install.sh | bash
 
 ###########################################################
