@@ -6,7 +6,7 @@ MAINTAINER Josh Garverick <josh.garverick@gmail.com>
 #  and some additional nice-to-haves (jake, yeoman, gulp)
 ###########################################################
 
-RUN npm install -g vsoagent-installer grunt bower grunt-cli jake yo gulp tfx-cli azure
+RUN npm install -g vsoagent-installer grunt bower jake yo gulp tfx-cli azure
 
 
 ###########################################################
